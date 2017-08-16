@@ -4,8 +4,8 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="triangle" class="com.zheng.spring.maven.springdemo.Triangle">
-		<property name="pointA" ref="zeroPoint" />
+	<bean id="triangle" class="com.zheng.spring.maven.springdemo.Triangle" name="triangle-name">
+		<property name="pointA" ref="zeroPoint"/>
 		<property name="pointB">
 			<bean class="com.zheng.spring.maven.springdemo.Point">
 				<property name="x" value="-20"/>
