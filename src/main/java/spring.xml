@@ -4,18 +4,22 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle">
-		<property name="pointA" ref="pointA" />
+	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle" abstract="true">
+		<property name="points">
+			<list>
+				<ref bean="pointA"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB"/>
+			</list>
+		</property>
 	</bean>
-	
-	<bean id="triangle2" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-	</bean>
+
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
 		<property name="x" value="0"/>
