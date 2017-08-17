@@ -4,7 +4,7 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="triangle" class="com.zheng.spring.maven.springdemo.Triangle" autowire="byName" scope="singleton">
+	<bean id="triangle" class="com.zheng.spring.maven.springdemo.Triangle" autowire="byName">
 	</bean>
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
