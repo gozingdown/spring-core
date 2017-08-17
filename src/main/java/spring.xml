@@ -4,7 +4,17 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="triangle" class="com.zheng.spring.maven.springdemo.Triangle" autowire="byName">
+	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle">
+		<property name="pointA" ref="pointA" />
+	</bean>
+	
+	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle">
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+	
+	<bean id="triangle2" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle">
+		<property name="pointB" ref="pointB" />
 	</bean>
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
@@ -20,11 +30,6 @@
 	<bean id="pointC" class="com.zheng.spring.maven.springdemo.Point">
 		<property name="x" value="0"/>
 		<property name="y" value="20"/>
-	</bean>
-	
-	<bean id="pointD" class="com.zheng.spring.maven.springdemo.Point">
-		<property name="x" value="0"/>
-		<property name="y" value="30"/>
 	</bean>
 
 </beans>
