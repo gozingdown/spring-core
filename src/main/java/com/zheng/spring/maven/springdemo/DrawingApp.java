@@ -9,7 +9,7 @@ public class DrawingApp {
 		//BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		Shape triangle = (Triangle)context.getBean("triangle1");
-		triangle.draw();
+		Shape shape = (Triangle)context.getBean("triangle1");
+		shape.draw();
 	}
 }

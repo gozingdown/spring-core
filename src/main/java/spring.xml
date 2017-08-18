@@ -22,7 +22,6 @@
 			</list>
 		</property>
 	</bean>
-
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
 		<property name="x" value="${pointA.pointX}"/>
