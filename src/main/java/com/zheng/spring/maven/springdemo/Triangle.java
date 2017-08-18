@@ -9,7 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware {
+public class Triangle implements Shape, ApplicationContextAware, BeanNameAware {
 
 	// public void afterPropertiesSet() throws Exception {
 	// System.out.println("InitializingBean init method called for Triangle");
