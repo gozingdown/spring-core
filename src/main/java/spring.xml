@@ -18,14 +18,14 @@
 		</property>
 	</bean>
 	
-<!-- 	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle" init-method="myInit" destroy-method="cleanUp"> -->
-<!-- 		<property name="points"> -->
-<!-- 			<list merge="true"> -->
-<!-- 				<ref bean="pointB"/> -->
-<!-- 				<ref bean="pointC"/> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
+	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle" init-method="myInit" destroy-method="cleanUp">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB"/>
+				<ref bean="pointC"/>
+			</list>
+		</property>
+	</bean>
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
 		<qualifier value="circleRelated"/>
