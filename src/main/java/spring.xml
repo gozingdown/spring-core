@@ -45,4 +45,8 @@
 		<property name="locations" value="pointsconfig.properties"/>
 	</bean>
 	
+	<bean id="circle" class="com.zheng.spring.maven.springdemo.Circle">
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 </beans>
