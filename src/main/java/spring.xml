@@ -2,9 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    xmlns:context="http://www.springframework.org/schema/context"
     default-init-method="myInit"
     default-destroy-method="cleanUp">
+	
+	<context:annotation-config />
 	
 	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle" abstract="true">
 		<property name="points">
@@ -14,16 +18,17 @@
 		</property>
 	</bean>
 	
-	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle" init-method="myInit" destroy-method="cleanUp">
-		<property name="points">
-			<list merge="true">
-				<ref bean="pointB"/>
-				<ref bean="pointC"/>
-			</list>
-		</property>
-	</bean>
+<!-- 	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle" init-method="myInit" destroy-method="cleanUp"> -->
+<!-- 		<property name="points"> -->
+<!-- 			<list merge="true"> -->
+<!-- 				<ref bean="pointB"/> -->
+<!-- 				<ref bean="pointC"/> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
+		<qualifier value="circleRelated"/>
 		<property name="x" value="${pointA.pointX}"/>
 		<property name="y" value="${pointA.pointY}"/>
 	</bean>
@@ -48,5 +53,5 @@
 	<bean id="circle" class="com.zheng.spring.maven.springdemo.Circle">
 	</bean>
 	
-	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>	
 </beans>
