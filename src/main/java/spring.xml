@@ -53,5 +53,4 @@
 	<bean id="circle" class="com.zheng.spring.maven.springdemo.Circle">
 	</bean>
 	
-	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>	
 </beans>
