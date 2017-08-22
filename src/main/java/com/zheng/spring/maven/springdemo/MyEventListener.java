@@ -10,6 +10,5 @@ public class MyEventListener implements ApplicationListener {
 	public void onApplicationEvent(ApplicationEvent event) {
 		System.out.println(event.toString());
 	}
-	
 
 }

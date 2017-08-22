@@ -1,63 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
-    xmlns:context="http://www.springframework.org/schema/context"
-    default-init-method="myInit"
-    default-destroy-method="cleanUp">
-	
+	xmlns:context="http://www.springframework.org/schema/context"
+	default-init-method="myInit" default-destroy-method="cleanUp">
+
 	<context:annotation-config />
-	
+
 	<context:component-scan base-package="com.zheng.spring.maven.springdemo" />
-	
-	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle" abstract="true">
+
+	<bean id="parentTriangle" class="com.zheng.spring.maven.springdemo.Triangle"
+		abstract="true">
 		<property name="points">
 			<list>
-				<ref bean="pointA"/>
+				<ref bean="pointA" />
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle" parent="parentTriangle" init-method="myInit" destroy-method="cleanUp">
+
+	<bean id="triangle1" class="com.zheng.spring.maven.springdemo.Triangle"
+		parent="parentTriangle" init-method="myInit" destroy-method="cleanUp">
 		<property name="points">
 			<list merge="true">
-				<ref bean="pointB"/>
-				<ref bean="pointC"/>
+				<ref bean="pointB" />
+				<ref bean="pointC" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="pointA" class="com.zheng.spring.maven.springdemo.Point">
-		<qualifier value="circleRelated"/>
-		<property name="x" value="${pointA.pointX}"/>
-		<property name="y" value="${pointA.pointY}"/>
+		<qualifier value="circleRelated" />
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
 	</bean>
-	
+
 	<bean id="pointB" class="com.zheng.spring.maven.springdemo.Point">
-		<property name="x" value="-20"/>
-		<property name="y" value="0"/>
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
 	</bean>
-	
+
 	<bean id="pointC" class="com.zheng.spring.maven.springdemo.Point">
-		<property name="x" value="0"/>
-		<property name="y" value="20"/>
+		<property name="x" value="0" />
+		<property name="y" value="20" />
 	</bean>
-	
-	<bean class="com.zheng.spring.maven.springdemo.DisplayNameBeanPostProcessor"/>
-	<bean class="com.zheng.spring.maven.springdemo.MyBeanFactoryPostProcessor"/>
-	
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="pointsconfig.properties"/>
+
+	<bean class="com.zheng.spring.maven.springdemo.DisplayNameBeanPostProcessor" />
+	<bean class="com.zheng.spring.maven.springdemo.MyBeanFactoryPostProcessor" />
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties" />
 	</bean>
-	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
 				<value>mymessages</value>
 			</list>
 		</property>
 	</bean>
-	
+
 </beans>
