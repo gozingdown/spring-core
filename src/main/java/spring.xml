@@ -52,5 +52,12 @@
 		<property name="locations" value="pointsconfig.properties"/>
 	</bean>
 	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymessages</value>
+			</list>
+		</property>
+	</bean>
 	
 </beans>
